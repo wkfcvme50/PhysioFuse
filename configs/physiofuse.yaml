@@ -1,0 +1,40 @@
+data:
+  data_dir: data/data-new
+  label_csv: data/data-new/hbs.csv
+
+output:
+  out_dir: outputs/physiofuse_cv
+  checkpoint_pattern: physiofuse_best_fold{fold}.pth
+
+model:
+  eye_backbone: mobilevit_xxs
+  nail_backbone: convnextv2_femto
+  pretrained: false
+  input_mode: both
+  feature_dim: 384
+  physio_dim: 64
+  confound_dim: 128
+  dropout: 0.25
+  use_high_freq_confound: true
+  use_reconstruction_loss: true
+
+loss:
+  regression_loss: smooth_l1
+  consistency_loss: normalized_cosine
+  lambda_consistency: 0.03
+  lambda_reconstruction: 0.12
+
+train:
+  seed: 42
+  cv_folds: 5
+  image_size: 224
+  batch_size: 16
+  epochs: 150
+  patience: 25
+  warmup_epochs: 10
+  lr: 0.0001
+  min_lr: 0.000001
+  weight_decay: 0.015
+  num_workers: 4
+  weighted_sampler: true
+
