@@ -1,8 +1,8 @@
 # PhysioFuse
 
-Official code-style release package for **PhysioFuse: Physiological Consistency Guided Multi-Site Visual Learning for Non-Invasive Hemoglobin Estimation**.
+Official implementation for **PhysioFuse: Physiological Consistency Guided Multi-Site Visual Learning for Non-Invasive Hemoglobin Estimation**.
 
-This repository is intentionally minimal. It contains source code and configuration files for the paper model. The full clinical dataset, full ROI mask set, sample-level labels, predictions, and trained checkpoints are not publicly released because they are subject to institutional data-use and ethics restrictions. A tiny anonymized `example_data/` folder is provided only to illustrate the expected file layout.
+This repository provides the model source code, configuration files, training/evaluation scripts, and a small anonymized `example_data/` folder for checking the expected input layout. The full clinical dataset, full ROI mask set, sample-level labels, predictions, and trained checkpoints are not publicly released because they are subject to institutional data-use and ethics restrictions.
 
 ## Data Format
 
@@ -120,7 +120,3 @@ Optional mask arguments are also supported:
 ```bash
 --eye-mask path/to/conjunctiva_mask.png --nail-mask path/to/nail_mask.png
 ```
-
-## Results
-
-Aggregate numerical results are reported in the manuscript. This repository does not include subject-level labels, prediction arrays, local paths, or other sample-level clinical outputs.
